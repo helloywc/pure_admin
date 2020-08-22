@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout/Layout'
+import {users} from '@/router/routers/user'
 
 Vue.use(Router)
 /**
@@ -112,6 +113,16 @@ let directive = {
         // if do not set roles, means: this page does not require permission
     }
 };
+// let user = {
+//     path: 'user',
+//     component: () => import('@/views/user/user'),
+//     name: 'user',
+//     meta: {
+//         title: 'user',
+//         roles: ['admin'] // or you can only set roles in sub nav
+//         // if do not set roles, means: this page does not require permission
+//     }
+// };
 export const asyncRouterMap = [
   {
     path: '/error',
@@ -124,6 +135,18 @@ export const asyncRouterMap = [
     },
     children: [page_401,page_404]
   },
+// {
+//     path: '/user',
+//     component: Layout,
+//     redirect: 'noredirect',
+//     name: 'ErrorPages',
+//     meta: {
+//         title: 'errorPages',
+//         icon: '404'
+//     },
+//     children: [user]
+// },
+    users,
   {
     path: '/permission',
     component: Layout,

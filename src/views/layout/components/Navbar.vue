@@ -10,17 +10,7 @@
 
         <error-log class="errLog-container right-menu-item hover-effect"/>
 
-        <screenfull class="right-menu-item hover-effect"/>
 
-        <el-tooltip :content="$t('navbar.size')" effect="dark" placement="bottom">
-          <size-select class="right-menu-item hover-effect"/>
-        </el-tooltip>
-
-        <lang-select class="right-menu-item hover-effect"/>
-
-        <el-tooltip :content="$t('navbar.theme')" effect="dark" placement="bottom">
-          <theme-picker class="right-menu-item hover-effect"/>
-        </el-tooltip>
       </template>
 
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="click">
@@ -48,10 +38,6 @@ import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
 import ErrorLog from '@/components/ErrorLog'
-import Screenfull from '@/components/Screenfull'
-import SizeSelect from '@/components/SizeSelect'
-import LangSelect from '@/components/LangSelect'
-import ThemePicker from '@/components/ThemePicker'
 import Search from '@/components/HeaderSearch'
 
 export default {
@@ -59,10 +45,6 @@ export default {
     Breadcrumb,
     Hamburger,
     ErrorLog,
-    Screenfull,
-    SizeSelect,
-    LangSelect,
-    ThemePicker,
     Search
   },
   computed: {

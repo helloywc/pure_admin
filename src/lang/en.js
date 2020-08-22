@@ -11,6 +11,8 @@ export default {
       permission: 'Permission',
       pagePermission: 'Page Permission',
       directivePermission: 'Directive Permission',
+
+      user: "user"
     },
     login: {
         title: 'Login Form',

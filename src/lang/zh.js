@@ -11,6 +11,8 @@ export default{
       permission: '权限测试页',
       pagePermission: '页面权限',
       directivePermission: '指令权限',
+
+      user: '用户',
     },
     login:{
         title: '系统登录',
