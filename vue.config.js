@@ -16,6 +16,7 @@ module.exports = {
                 symbolId: 'icon-[name]'
             })
 
-    }
+    },
+    publicPath: './'
 
 }
