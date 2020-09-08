@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout/Layout'
-import dashboard from '@/views/layout/Layout'
-
+import {permission,errorPage,user} from './page_function'
+import {develop} from './page_dev'
 Vue.use(Router)
 /**
 * hidden: true                   if `hidden:true` will not show in the sidebar(default is false)
@@ -75,66 +75,16 @@ export const constantRouterMap = [
   }
 ]
 
-const permission = {
-    path: '/permission',
-    component: Layout,
-    redirect: '/permission/index',
-    alwaysShow: true, // will always show the root menu
-    meta: {
-      title: '权限测试页',
-      icon: 'lock',
-      roles: ['admin', 'editor'] // you can set roles in root nav
-    },
-    children: [
-      {
-        path: 'page',
-        component: () => import('@/views/permission/page'),
-        name: 'PagePermission',
-        meta: {
-          title: '页面权限',
-          roles: ['admin'] // or you can only set roles in sub nav
-        }
-      },
-      {
-        path: 'directive',
-        component: () => import('@/views/permission/directive'),
-        name: 'DirectivePermission',
-        meta: {
-          title: '指令权限'
-          // if do not set roles, means: this page does not require permission
-        }
-      }
-    ]
-  }
+
 export default new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
   routes: constantRouterMap
 })
-export const asyncRouterMap = [{
-  path: '/error',
-  component: Layout,
-  redirect: 'noredirect',
-  name: 'ErrorPages',
-  meta: {
-    title: '错误页面',
-    icon: '404'
-  },
-  children: [
-    {
-      path: '401',
-      component: () => import('@/views/errorPage/401'),
-      name: 'Page401',
-      meta: { title: '401', noCache: true }
-    },
-    {
-      path: '404',
-      component: () => import('@/views/errorPage/404'),
-      name: 'Page404',
-      meta: { title: '404', noCache: true }
-    },
-  ]
-},
+export const asyncRouterMap = [
+  develop,
+  errorPage,
   permission,
+  user,
 { path: '*', redirect: '/404', hidden: true }
 ]
