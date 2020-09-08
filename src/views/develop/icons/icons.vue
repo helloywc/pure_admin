@@ -5,8 +5,8 @@
       <div class="title">
         <div>name</div>
         <div>16*16</div>
+        <div>24*24</div>
         <div>32*32</div>
-        <div>48*48</div>
       </div>
       <!--  -->
       <div class="icon-list">
@@ -97,16 +97,19 @@ export default{
           display: flex;
           justify-content: center;
           align-items: center;
+          fill: #999;
         }
         .svg-icon-background {
-          height: 32px;
-          width: 32px;
-          background: #30b08f;
+          height: 30px;
+          width: 30px;
+          background: rgb(64, 158, 255);
+          padding:3px;
+          fill: #fff;
         }
         .svg-icon-fill {
-          height: 48px;
-          width: 48px;
-          fill: #30b08f;
+          height: 32px;
+          width: 32px;
+          fill: rgb(64, 158, 255);
         }
       }
     }

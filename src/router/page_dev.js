@@ -13,13 +13,13 @@ export const develop  = {
       path: 'forms',
       component: () => import('@/views/develop/forms/forms'),
       name: 'forms',
-      meta: { title: '表单', icon: 'dashboard', noCache: true, affix: true }
+      meta: { title: '表单', icon: 'dashboard', noCache: false, affix: false }
     },
     {
       path: 'icons',
       component: () => import('@/views/develop/icons/icons'),
       name: 'icons',
-      meta: { title: '图标', icon: 'dashboard', noCache: true, affix: true }
+      meta: { title: '图标', icon: 'dashboard', noCache: false, affix: false }
     }
   ]
 }
