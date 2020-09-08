@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/views/layout/Layout'
+import dashboard from '@/views/layout/Layout'
 
 Vue.use(Router)
 /**
@@ -73,6 +74,38 @@ export const constantRouterMap = [
     ]
   }
 ]
+
+const permission = {
+    path: '/permission',
+    component: Layout,
+    redirect: '/permission/index',
+    alwaysShow: true, // will always show the root menu
+    meta: {
+      title: 'permission',
+      icon: 'lock',
+      roles: ['admin', 'editor'] // you can set roles in root nav
+    },
+    children: [
+      {
+        path: 'page',
+        component: () => import('@/views/permission/page'),
+        name: 'PagePermission',
+        meta: {
+          title: 'pagePermission',
+          roles: ['admin'] // or you can only set roles in sub nav
+        }
+      },
+      {
+        path: 'directive',
+        component: () => import('@/views/permission/directive'),
+        name: 'DirectivePermission',
+        meta: {
+          title: 'directivePermission'
+          // if do not set roles, means: this page does not require permission
+        }
+      }
+    ]
+  }
 export default new Router({
   // mode: 'history', // require service support
   scrollBehavior: () => ({ y: 0 }),
@@ -102,36 +135,6 @@ export const asyncRouterMap = [{
     },
   ]
 },
-{
-  path: '/permission',
-  component: Layout,
-  redirect: '/permission/index',
-  alwaysShow: true, // will always show the root menu
-  meta: {
-    title: 'permission',
-    icon: 'lock',
-    roles: ['admin', 'editor'] // you can set roles in root nav
-  },
-  children: [
-    {
-      path: 'page',
-      component: () => import('@/views/permission/page'),
-      name: 'PagePermission',
-      meta: {
-        title: 'pagePermission',
-        roles: ['admin'] // or you can only set roles in sub nav
-      }
-    },
-    {
-      path: 'directive',
-      component: () => import('@/views/permission/directive'),
-      name: 'DirectivePermission',
-      meta: {
-        title: 'directivePermission'
-        // if do not set roles, means: this page does not require permission
-      }
-    }
-  ]
-},
+  permission,
 { path: '*', redirect: '/404', hidden: true }
 ]

@@ -2,9 +2,7 @@
   <div class="login-container">
     <el-form ref="loginForm" :model="loginForm" :rules="loginRules" class="login-form" auto-complete="on" label-position="left">
       <div class="title-container">
-        <h3 class="title">
-          {{ $t('login.title') }}
-        </h3>
+        <h3 class="title">系统登录</h3>
         <lang-select class="set-language" />
       </div>
 
@@ -14,7 +12,7 @@
         </span>
         <el-input
           v-model="loginForm.username"
-          :placeholder="$t('login.username')"
+          placeholder="账号"
           name="username"
           type="text"
           auto-complete="on"
@@ -28,7 +26,7 @@
         <el-input
           v-model="loginForm.password"
           :type="passwordType"
-          :placeholder="$t('login.password')"
+          placeholder="密码"
           name="password"
           auto-complete="on"
           @keyup.enter.native="handleLogin"
@@ -39,7 +37,7 @@
       </el-form-item>
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">
-        {{ $t('login.logIn') }}
+        登录
       </el-button>
 
     </el-form>
