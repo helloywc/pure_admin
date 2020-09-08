@@ -41,7 +41,7 @@ export const constantRouterMap = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'dashboard', icon: 'dashboard', noCache: true, affix: true }
+        meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
       }
     ]
   },
@@ -69,7 +69,7 @@ export const constantRouterMap = [
         path: 'index',
         component: () => import('@/views/guide/index'),
         name: 'Guide',
-        meta: { title: 'guide', icon: 'guide', noCache: true }
+        meta: { title: '引导页', icon: 'guide', noCache: true }
       }
     ]
   }
@@ -81,7 +81,7 @@ const permission = {
     redirect: '/permission/index',
     alwaysShow: true, // will always show the root menu
     meta: {
-      title: 'permission',
+      title: '权限测试页',
       icon: 'lock',
       roles: ['admin', 'editor'] // you can set roles in root nav
     },
@@ -91,7 +91,7 @@ const permission = {
         component: () => import('@/views/permission/page'),
         name: 'PagePermission',
         meta: {
-          title: 'pagePermission',
+          title: '页面权限',
           roles: ['admin'] // or you can only set roles in sub nav
         }
       },
@@ -100,7 +100,7 @@ const permission = {
         component: () => import('@/views/permission/directive'),
         name: 'DirectivePermission',
         meta: {
-          title: 'directivePermission'
+          title: '指令权限'
           // if do not set roles, means: this page does not require permission
         }
       }
@@ -117,7 +117,7 @@ export const asyncRouterMap = [{
   redirect: 'noredirect',
   name: 'ErrorPages',
   meta: {
-    title: 'errorPages',
+    title: '错误页面',
     icon: '404'
   },
   children: [
@@ -125,13 +125,13 @@ export const asyncRouterMap = [{
       path: '401',
       component: () => import('@/views/errorPage/401'),
       name: 'Page401',
-      meta: { title: 'page401', noCache: true }
+      meta: { title: '401', noCache: true }
     },
     {
       path: '404',
       component: () => import('@/views/errorPage/404'),
       name: 'Page404',
-      meta: { title: 'page404', noCache: true }
+      meta: { title: '404', noCache: true }
     },
   ]
 },
