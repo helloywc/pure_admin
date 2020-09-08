@@ -78,21 +78,22 @@ export const user = {
   name: 'ErrorPages',
   meta: {
     title: '用户',
-    icon: '404'
+    icon: 'peoples'
   },
   children: [
     {
-      path: '401',
-      component: () => import('@/views/user/userDetail/userDetail'),
-      name: 'Page401',
-      meta: { title: '用户列表', noCache: true }
-    },
-    {
       path: '404',
       component: () => import('@/views/user/userList/userList'),
-      name: 'Page404',
-      meta: { title: '用户详情', noCache: true },
+      name: 'userList',
+      meta: { title: '用户列表', noCache: true },
       // hidden: true
     },
+    {
+      path: '401',
+      component: () => import('@/views/user/userDetail/userDetail'),
+      name: 'userDetail',
+      meta: { title: '用户详情', noCache: true }
+    },
+
   ]
 }

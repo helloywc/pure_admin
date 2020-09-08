@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <h1>forms</h1>
+    <h1>userDetail</h1>
   </div>
 </template>
 
