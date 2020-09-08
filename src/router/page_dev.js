@@ -1,7 +1,7 @@
 // 功能页面
 import Layout from '@/views/layout/Layout'
 export const develop  = {
-  path: '',
+  path: '/develop',
   component: Layout,
   redirect: 'noredirect',
   meta: {
@@ -12,13 +12,13 @@ export const develop  = {
     {
       path: 'forms',
       component: () => import('@/views/develop/forms/forms'),
-      name: 'Dashboard',
+      name: 'forms',
       meta: { title: '表单', icon: 'dashboard', noCache: true, affix: true }
     },
     {
       path: 'icons',
       component: () => import('@/views/develop/icons/icons'),
-      name: 'Dashboard',
+      name: 'icons',
       meta: { title: '图标', icon: 'dashboard', noCache: true, affix: true }
     }
   ]

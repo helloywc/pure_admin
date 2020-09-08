@@ -83,7 +83,7 @@ export default new Router({
 })
 export const asyncRouterMap = [
   develop,
-  errorPage,
+  // errorPage,
   permission,
   user,
 { path: '*', redirect: '/404', hidden: true }

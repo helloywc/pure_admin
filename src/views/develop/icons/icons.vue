@@ -9,6 +9,10 @@
 export default{
   name: 'userDetail',
   methods: {
-  }
+
+  },
+  created(){
+    console.log(123)
+  },
 }
 </script>
