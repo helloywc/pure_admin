@@ -9,7 +9,8 @@ export const dashboard  = {
       path: 'dashboard',
       component: () => import('@/views/dashboard/index'),
       name: 'Dashboard',
-      meta: { title: '首页', icon: 'dashboard', noCache: true, affix: true }
+      // meta: { title: '首页', icon: 'dashboard', noCache: true,  }
+      meta: { title: '首页', icon: 'dashboard', noCache: false, affix: false }
     }
   ]
 }
@@ -82,14 +83,14 @@ export const user = {
   },
   children: [
     {
-      path: '404',
+      path: 'userList',
       component: () => import('@/views/user/userList/userList'),
       name: 'userList',
       meta: { title: '用户列表', noCache: true },
       // hidden: true
     },
     {
-      path: '401',
+      path: 'userDetail',
       component: () => import('@/views/user/userDetail/userDetail'),
       name: 'userDetail',
       meta: { title: '用户详情', noCache: true }

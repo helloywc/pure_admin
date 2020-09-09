@@ -63,8 +63,32 @@ export default {
   mounted() {
     this.initTags()
     this.addTags()
+    this.beforeUnload();
   },
   methods: {
+    beforeUnload() {
+      // 监听页面刷新
+      window.addEventListener("beforeunload", () => {
+        let tabViews = this.visitedViews.map(item => {
+          return {
+            fullPath: item.fullPath,
+            hash: item.hash,
+            meta: { ...item.meta },
+            name: item.name,
+            params: { ...item.params },
+            path: item.path,
+            query: { ...item.query },
+            title: item.title
+          };
+        });
+        localStorage.setItem("tabViews", JSON.stringify(tabViews));
+      });
+      // 页面初始化加载判断缓存中是否有数据
+      let oldViews = JSON.parse(localStorage.getItem("tabViews")) || [];
+      if (oldViews.length > 0) {
+        this.$store.state.tagsView.visitedViews = oldViews;
+      }
+    },
     isActive(route) {
       return route.path === this.$route.path
     },
@@ -96,6 +120,7 @@ export default {
           this.$store.dispatch('addVisitedView', tag)
         }
       }
+
     },
     addTags() {
       const { name } = this.$route
